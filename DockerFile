@@ -1,0 +1,15 @@
+### Stage 1
+FROM node:18-buster AS build
+WORKDIR /app
+COPY . .
+COPY package.json package-lock.json ./
+RUN npm install -g npm@9.8.1
+RUN npm install --force
+RUN npm run build
+
+
+### Stage 2
+FROM nginx:latest
+#RUN rm -rf /etc/nginx/conf.d/*
+COPY --from=build /app/dist/my-app/ /usr/share/nginx/html
+EXPOSE 80
