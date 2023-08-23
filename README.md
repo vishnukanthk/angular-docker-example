@@ -1,10 +1,22 @@
+Title:
+Docker Angular App
 
-Buildkit: The error message indicates that Buildkit is being used as the build frontend, and it failed to read the Dockerfile. Buildkit is an alternative builder for Docker. You might consider disabling Buildkit temporarily to see if it resolves the issue. You can do this by setting the DOCKER_BUILDKIT environment variable to 0:
--------------------- set DOCKER_BUILDKIT=0
+Description: 
+This is a sample application demonstrating angular packaged in docker
+
+Prerequisites:
+1) NodeJs
+2) Docker Desktop
+3) WSL (optional)
+
+Steps to Run :
+(without docker)
+1) npm install 
+2) ng serve
+
+(with docker)
+1) docker-compose up
 
 
 
 
-
-
-------------------- docker build -t angular-app .
